@@ -1,0 +1,32 @@
+
+
+
+{
+  "project_info": {
+    "project_number": "865609805709",
+    "project_id": "futsal-booking-app-b4221",
+    "storage_bucket": "futsal-booking-app-b4221.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865609805709:android:b91e5097de94f28fef17c4",
+        "android_client_info": {
+          "package_name": "com.example.futsal_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAeq9a-mLZfXN7_DQUL3n_fKVByc6J6ak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
