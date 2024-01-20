@@ -57,4 +57,9 @@ class FutsalFirebase {
       },
     );
   }
+  Future<void> delete( String id) async {
+    await firebaseFirestore.collection('booking').doc(id).delete(
+
+    );
+  }
 }

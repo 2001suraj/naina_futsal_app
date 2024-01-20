@@ -219,6 +219,56 @@ class BookingScreen extends ConsumerWidget {
                                                 );
                                               });
                                         }
+                                        if (data.docs[index]['status'].toString().toLowerCase() == ("Cancel").toLowerCase()) {
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) {
+                                                return AlertDialog(
+                                                  surfaceTintColor: AppColor.white,
+                                                  content: Column(
+                                                    mainAxisSize: MainAxisSize.min,
+                                                    children: [
+                                                      texts(text: "Delete Booking", color: AppColor.red, size: 22, weight: FontWeight.w700),
+                                                      AppSize.normalheight,
+                                                      texts(
+                                                          text: "Are you sure you want to Delete your booking?",
+                                                          size: 14,
+                                                          weight: FontWeight.w500,
+                                                          align: TextAlign.center),
+                                                      AppSize.maxheight,
+                                                      Row(
+                                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                        children: [
+                                                          MaterialButton(
+                                                            height: 42,
+                                                            minWidth: 120,
+                                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                                                            color: AppColor.bgColor,
+                                                            onPressed: () {
+                                                              Navigator.pop(context);
+                                                            },
+                                                            child: texts(text: "Cancel", color: AppColor.primaryColor, size: 13),
+                                                          ),
+                                                          AppSize.normalwidth,
+                                                          MaterialButton(
+                                                            height: 42,
+                                                            minWidth: 120,
+                                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                                                            color: AppColor.primaryColor,
+                                                            onPressed: () {
+                                                              FutsalFirebase().delete(data.docs[index].id);
+                                                              Navigator.pop(context);
+                                                              ref.read(currentPageIndexProvider.notifier).state == 0;
+                                                            },
+                                                            child: texts(text: "Yes, Continue", color: AppColor.white, size: 13),
+                                                          ),
+                                                        ],
+                                                      )
+                                                    ],
+                                                  ),
+                                                );
+                                              });
+                                        }
                                       },
                                       child: texts(
                                         text: data.docs[index]['status'].toString().toLowerCase() == ("Booked".toLowerCase())
